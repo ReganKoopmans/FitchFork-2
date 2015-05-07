@@ -1,0 +1,65 @@
+\subimport{}{generalImports}
+\subimport{}{asection}
+
+\usepackage{lastpage}
+
+\newif\ifopenbook
+
+\addpoints
+\bracketedpoints
+\pointsinrightmargin
+\setlength{\rightpointsmargin}{5mm}
+
+\extrawidth{15mm}
+
+\newenvironment{indentedItemize}
+{
+  \begin{itemize}{$\bullet$}{
+      \setlength{\leftmargin}{20mm}}}
+  {\end{itemize}
+}
+
+%\qformat{\textbf{Question \thequestion: \thequestiontitle} \hfill \textbf{(\totalpoints)}}
+\qformat{\textbf{Question: \thequestion} \hfill \textbf{(\totalpoints)}}
+
+\vspace{-6em}
+
+\pagestyle{headandfoot}
+\title{  
+      {\huge {\courseCode}: \emph{\courseName}} \\ \hspace{4mm} \\
+      \institutionName \\ 
+}
+
+\date{} % removing the default date in article style
+
+\begin{document}
+
+\maketitle
+
+\vspace{-2em}
+\centerline{\textbf{\theTest : } \theDate \hspace{4em} \textbf{Examiner } \internalExaminers } 
+\vspace{1em}
+\begin{tabularx}{\textwidth}{ccccc}
+   \textbf{Marks:} \numpoints & \textbf{Full Marks:} \fullMarks &  \textbf{Questions:}  \numquestions & \textbf{Pages:} \numpages & \textbf{Time:} \availableTime \\
+\end{tabularx}
+ 
+ \vspace{4em}
+
+ Full Name: \hspace{1em} \dotfill \\
+ 
+ \vspace{1em}
+
+\noindent
+\centerline{\LARGE
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+  \hline
+  \multicolumn{13}{|c|}{\normalsize ID Number} \\
+  \hline
+  \hspace{4mm} & \hspace{4mm} & \hspace{4mm} & \hspace{4mm} & \hspace{4mm} & \hspace{4mm} & \hspace{4mm} & 
+  \hspace{4mm} & \hspace{4mm} & \hspace{4mm} & \hspace{4mm} & \hspace{4mm} & \hspace{4mm} \\
+  \hline
+\end{tabular}
+}
+
+  
+\cfoot{Page \thepage\ of \pageref{LastPage}}

@@ -1,0 +1,34 @@
+\newif\ifwithnotes
+
+\usepackage{xcolor}
+%\usepackage[framemethod=default]{mdframed}
+% 
+% \global\mdfdefinestyle{tnotecontent}{%
+% linecolor=gray,linewidth=1pt,%
+% backgroundcolor=yellow,
+% leftmargin=2cm,rightmargin=2cm,
+% }
+% 
+% \newenvironment{todonote}[1]
+% {
+%   \mdfsetup
+%   {
+%     frametitle={\colorbox{orange}{TODO: #1}},
+%     frametitleaboveskip=-\ht\strutbox,
+%     frametitlealignment=\raggedright
+%   }
+%   \ifwithnotes
+%   \begin{mdframed}[style=tnotecontent]
+%   }{\end{mdframed}
+%   \fi
+% }
+% 
+% \newcommand{\tnote}[2]{\ifwithnotes \begin{todonote}{#1} #2 \end{todonote} \fi}
+
+\newcommand{\tnote}[2]{{{\ifwithnotes \small \textcolor{orange}{ [ #1: #2 ]}} \fi}}
+
+
+
+
+
+
