@@ -1,1 +1,34 @@
-\tnote{Fritz}{Somebody who knows this, please wite this \ldots}
+In November 2005 Andries Engelbrecht decided to put a vision he had into action. At the time he was teaching the COS212 (Data Structures and Algorithms) module. His vision was the automatic assessment of student code in this module. 
+
+\asection{The name}
+
+The unusual name the developers chose for the system was decided when they were joking about how the students might react when the system marks them down. They envisioned an angry mob storming the CS Department door with torches and pitchforks and wanted to call the system {\bf Pitchfork}.
+
+The developers communicated regularly using Internet Relay Chat (IRC). It was during a chat session that Francois misspelled pitchfork as fitchfork. They thought it was very funny and decided to call the system {\bf Fitchfork} remembering their inner-joke.
+     
+\asection{The developers}
+
+The task to design and implement FitchFork was assigned to Theunis Cloete and Francois Geldenhuys. They were expected to implement a system over the December recess of 2005. At the time they both just finished his Hons and was heading towards a Masters. 
+
+The requirements and design was not documented. It was conceptualised by the team under the supervision of Linda Marshall and Andries Engelbrecht. Francois described the software engineering process they followed as follows:
+\begin{quote}
+\textit{There was no planning. Pretty much hacked it together and solved issues as they came up} 
+\end{quote}
+They managed to build a fairly comprehensive prototype which went live in February 2006. Early in 2006 they co-opted Dani\"{e}l Lowes. At that time  Dani\"{e}l  was registered for his Hons degree in Computer Science and appointed as a member of the CS Department's TechTeam. They deemed it necessary to have him on the team to help to integrate the system with the CS webpage.  Gary Pampar\`{a} was consulted to assist with the deployment to allow use of the system via the web-interface provided on the CS webpage. At that stage Gary was a Master student in the CIRG group.  
+
+By the end of 2007 Francois completed his Masters and was employed as a technical developer at DataCyte while Dani\"{e}l completed his Hons and accepted a position as a software developer at Aurecon. They were not involved in FitchFork since then. Theunis was the only person involved in the maintenance of Fitchfork after they left and stayed involved to the middle of 2008. At that stage Fitchfork was mostly used in COS212 and COS213 that was presented by Andries Engelbrecht. During this time only the developers specified the memoranda for assessment of student uploads.
+
+Fitchfork was not used in the second semester of 2008. It was, however, revived in 2009 by Bobby Anguelov when in was introduced to COS110 and COS130 presented respectively by Andries Engelbrect and Will van Heerden. At that time Bobby was on the TechTeam and registered for his MSc (CS) after completing BSc (Hons) (CS) in 2008. According to him he did some basic maintenance, refactored a few things to get it running but didn't do anything really major on it.  
+
+\tnote{Vreda}{Here is the part when Will was in charge and Andre-Martin Helberg was appointed specifically for FF development and other people started to specify memoranda} 
+
+\asection{Technical}
+They developed the system in Ruby and decided to use XML for the configuration. 
+
+Very early in the development it was realised that it is important to allow some variation in the format of the output of student programs to be fair. For this reason the system supports the use of regular expressions to specify the expected output.  
+
+It was a requirement that there has to be strict control over the compilation phases of the student code. The setup included the specification of code libraries that may be included as well as libraries that was deemed forbidden for an assignment. Most memos was specified using a provided driver that calls the methods and functions that had to be tested.   
+
+The need to restrict the uploaded code was deemed extremely important to ensure that students will not be able to access the source code of the system or perform malicious actions on the server running the code. Code that was written by Jaco Kroon was used to lock the uploaded code in a sandbox. This code was primary written as part of the Abacus system he developed for use for the African league of the IBM Programming Contest. Jaco mentions Bruce Merry as an intellectual contributor to this code. This  application is called {\tt runlimit} and is based on a system that was used by the International Olympiad in Informatics. It restricts the program and also measures memory usage as well as CPU time. It should not be confused with \tnote{Vreda}{Hannes or Neels referred to another runlimit he found on the web}
+
+Apparently some basic plagiarism detection was added in 2007. This was aimed at identifying students who uploaded solutions created by their peers. It simply calcualted the MD5 sums of the uploaded tarballs and printed a report listing the students who uploaded identical solutions. This was, however, not part of Bobby's revived version of the system in XXXX when Andre-Martin implemented an interface to use MOSS for plagiarism detection. 
