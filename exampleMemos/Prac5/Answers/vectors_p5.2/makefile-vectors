@@ -1,0 +1,26 @@
+#Hannes Janse van Vuuren 2015 UP CS dept
+#this might make a good example of a more "advanced" makefile for students
+#I know in practice many people use make, but don't ever write big makefiles
+#instead, they autogenerate makefiles with other tools such as ./configure, scons, automake, etc.
+#(because let's be honest: you don't want to spend time coding a big makefile)
+#however this could still be useful for teaching students more about make's abilities:
+
+CPP=g++
+LINKER=g++
+CFLAGS=-Wall -Wfatal-errors
+
+vectors.out: main.o vectors.o
+	$(LINKER) main.o vectors.o -o vectors.out
+
+main.o: main.cpp vectors.h
+	$(CPP) -c $(CFLAGS) main.cpp
+
+vectors.o: vectors.cpp vectors.h
+	$(CPP) -c $(CFLAGS) vectors.cpp
+
+main.cpp:
+	echo You don't have a file called main.cpp
+
+vectors.cpp:
+	echo You don't have a file called vectors.cpp
+

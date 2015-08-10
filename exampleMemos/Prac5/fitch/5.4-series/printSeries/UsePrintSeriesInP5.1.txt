@@ -1,0 +1,1 @@
+The same memo as in P5.1 for printSeries should be used

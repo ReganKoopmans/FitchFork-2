@@ -1,0 +1,1 @@
+The same meo as in P5.1 for sumOfSeries should be used

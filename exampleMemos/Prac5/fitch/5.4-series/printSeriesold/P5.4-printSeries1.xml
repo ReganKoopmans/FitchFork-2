@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<memo version='0.4'>
+	<title>COS132_P5S4_printSeries(const double[], size_t)</title>
+	<!-- Mary -->
+	<config>
+		<random>0</random>
+		<sequence>1</sequence>
+		<parts>1</parts>
+		<chances>1</chances> 
+	</config>
+
+<output part='1' fullmarks='10'> 
+	<executable>printSeries1.out</executable>
+			
+	<delete-patterns>
+		<pattern>.+\.o$</pattern>
+		<pattern>.+~$</pattern>
+	</delete-patterns>
+	
+	<source-patterns>
+		<pattern>.+\.cpp$</pattern>
+	</source-patterns>
+
+	<extra-files>
+		<file overwrite='true' jail='true'>driver-printSeries1.cpp</file>
+		<file overwrite='true' jail='true'>makefile</file>
+		<file overwrite='true' jail='true'>series.h</file>
+	</extra-files>
+
+	<case id='1'>
+		<!--array = {-1,-2,-3,-4,-5,999}-->
+		<alt>
+			<line>
+				<regexp mark='3' 
+				successMessage="OK: printSeries(const double[], size_t) when all array values are negative" 
+				errorMessage="X: printSeries(const double[], size_t) fails when all array values are negative" 
+				>-1\s?\+\s?-2\s?\+\s?-3\s?\+\s?-4\s?\+\s?-5</regexp>
+			</line><line>
+				<regexp mark='2' 
+				successMessage="X: The first - sign is missing when all array values are negative" 
+				>1\s?\+\s?-2\s?\+\s?-3\s?\+\s?-4\s?\+\s?-5</regexp>
+			</line><line>
+				<regexp mark='1'
+				successMessage="X: The + signs are missing when the array element is a negative value" 
+				>-1\s?-\s?2\s?-\s?3\s?-\s?4\s?-\s?5</regexp>
+			</line><line>
+				<regexp mark='1' 
+				successMessage="X: prints elements beyond the specified number of terms" 
+				>-1\s?\+\s?-2\s?\+\s?-3\s?\+\s?-4\s?\+\s?-5\s?+\s?999</regexp>
+			</line>
+			<line>
+			<regexp mark='1' 
+			successMessage="X: -signs neglected when array elements are negative values" 
+			>\s?1\s?\+\s?2\s?\+\s?3\s?\+\s?4\s?\+\s?5</regexp>
+			</line>
+		</alt>
+
+		<!-- array = {-1,2,-3,4,-5,999} -->
+		<alt>
+		<line>
+			<regexp mark='2' 
+			successMessage="OK: printSeries(const double[], size_t) when array have alternate - + elements" 
+			errorMessage="X: printSeries(const double[], size_t) fails when array have alternate - + elements"
+			>-1\s?\+\s?2\s?\+\s?-\s?3\s?\+\s?4\s?\+\s?-5</regexp>
+		</line><line>
+			<regexp mark='1' 
+			successMessage="X: The + signs are missing in front of negative array elements" 
+			>-1\s?\+\s?2\s?-\s?3\s?\+\s?4\s?-5</regexp>
+		</line>
+		</alt>
+
+		<!-- array = {1,-2,3,-4,5,999} -->
+		<line>
+			<regexp mark='1' 
+			successMessage="OK: printSeries(const double[], size_t) when array have alternate + - elements" 
+			errorMessage="X: printSeries(const double[], size_t) fails when array have alternate + - elements"
+			>1\s?\+\s?-2\s?\+\s?3\s?\+\s?-4\s?\+\s?5</regexp>
+		</line>
+		
+				
+		<!-- array ={1,2,3,4,5,999} -->
+		<alt>
+		<line>
+			<regexp mark='3' 
+			successMessage="OK: printSeries(const double[], size_t) when array consist of positive elements" 
+			errorMessage="X: printSeries(const double[], size_t) fails when array consist of positive elements"
+			>1\s?\+\s?2\s?\+\s?3\s?\+\s?4\s?\+\s?5</regexp>
+		</line>
+		<line>
+			<regexp mark='2' 
+			successMessage="X: Stray + sign in front of first element when all elements are positive" 
+			>\+\s?1\s?\+\s?2\s?\+\s?3\s?\+\s?4\s?\+\s?5</regexp>
+		</line>
+		<line>
+			<regexp mark='1' 
+			successMessage="X: Wrong - sign in front of first element of array" 
+			>-\s?1\s?\+\s?2\s?\+\s?3\s?\+\s?4\s?\+\s?5</regexp>
+		</line>
+		</alt>
+		<!-- printSeries(array[3],1) - one term -->
+		<line><regexp mark='1' 
+			successMessage="OK: printSeries(const double[], size_t) when terms is 1" 
+			errorMessage="X: printSeries(const double[], size_t) fails when terms is 1"
+			>1$</regexp> </line>
+	</case>
+</output>
+</memo>

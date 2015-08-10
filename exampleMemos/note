@@ -1,0 +1,11 @@
+These memos are from COS132_2015
+
+exampleMemos/Prac3-1CostOfFailing/132_2015_P3-costOfFailing.xml
+	This is a simpler example to look at, where we evaluate students' output. The memo XML file references all the other files in the directory. There are a few versions to see how the idea progressed. This is an example of where one would want to mark output strings against regexes.
+
+
+/home/hannes/dev/Fitchfork-2/exampleMemos/PracExamD2-WordCount/model+fitch
+	This is a question that I created for the prac exam. The directory contains four test cases: one for each function they had to implement. Some of the functions may depend on the outputs of others; in such cases I included a copy of the model solution of the other function(s) in the test harness (harn-*.cpp file). This is often not done by lecturers, resulting in a strict order in which students have to successfully implement functions. I tried to write the harnesses in a fairly generic way (no hardcoded values). This kind of use can hopefully be replaced by some existing unit-testing framework (regex matching isn't really required to mark this)
+
+
+Hannes
