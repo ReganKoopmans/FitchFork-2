@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<memo version='0.4'>
+	<title>D2_incrementWord</title>
+	<!-- hannes jvv -->
+
+	<config>
+		<random>0</random>
+		<sequence>1</sequence>
+		<parts>1</parts>
+		<chances>30</chances> 
+	</config>
+
+<output part='1' fullmarks='12'> 
+			
+	<delete-patterns>
+		<pattern>.+\.o$</pattern>
+		<pattern>.+~$</pattern>
+	</delete-patterns>
+	
+	<source-patterns>
+		<pattern>.+\.cpp$</pattern>
+	</source-patterns>
+
+	<extra-files>
+		<file overwrite='true' jail='true'>makefile</file>
+		<file overwrite='true' jail='true'>harn-incr.cpp</file>
+		<file overwrite='true' jail='true'>sampletext1.txt</file>
+		<file overwrite='true' jail='true'>sampletext2.txt</file>
+		<file overwrite='true' jail='true'>sampletext3.txt</file>
+	</extra-files>	
+
+	<case id='1'>
+		<arguments> 
+			<arg input="true" file="true">sampletext3.txt</arg>
+		</arguments>
+		<line><alt>
+			<regexp mark='2'>abc % 4</regexp>
+			<regexp mark='1'>abc</regexp>
+		</alt></line>
+		<line><alt>
+			<regexp mark='2'>def % 3</regexp>
+			<regexp mark='1'>def</regexp>
+		</alt></line>
+		<line><alt>
+			<regexp mark='1'>xyz % 2</regexp>
+			<regexp mark='0'>xyz</regexp>
+		</alt></line>
+		<line><alt>
+			<regexp mark='1'>www % 1</regexp>
+			<regexp mark='0'>www</regexp>
+		</alt></line>
+	</case>
+
+	<case id='2'>
+		<arguments> 
+			<arg input="true" file="true">sampletext2.txt</arg>
+		</arguments>
+		<line><regexp mark='1'>grass % 4</regexp></line>
+		<group mark='1'>
+			<line><regexp mark='0'>abbey</regexp></line>
+			<line><regexp mark='0'>mountain</regexp></line>
+			<line><regexp mark='0'>dam|cloud</regexp></line>
+		</group>
+	</case>
+
+	<case id='3'>
+		<arguments> 
+			<arg input="true" file="true">sampletext1.txt</arg>
+		</arguments>
+		<line><alt>
+			<regexp mark='2'>the % 21</regexp>
+			<regexp mark='1'>the</regexp>
+		</alt></line>
+		<line><regexp mark='1'>of % 11</regexp></line>
+		<group mark='1'>
+			<line><regexp mark='0'>a </regexp></line>
+			<line><regexp mark='0'>to </regexp></line>
+			<line><regexp mark='0'>in </regexp></line>
+			<line><regexp mark='0'>and|is</regexp></line>
+		</group>
+	</case>
+</output>
+</memo>

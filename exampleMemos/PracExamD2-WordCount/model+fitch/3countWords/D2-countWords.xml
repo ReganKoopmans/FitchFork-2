@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<memo version='0.4'>
+	<title>D2_countWords</title>
+	<!-- hannes jvv -->
+
+	<config>
+		<random>0</random>
+		<sequence>1</sequence>
+		<parts>1</parts>
+		<chances>30</chances> 
+	</config>
+
+<output part='1' fullmarks='11'> 
+			
+	<delete-patterns>
+		<pattern>.+\.o$</pattern>
+		<pattern>.+~$</pattern>
+	</delete-patterns>
+	
+	<source-patterns>
+		<pattern>.+\.cpp$</pattern>
+	</source-patterns>
+
+	<extra-files>
+		<file overwrite='true' jail='true'>makefile</file>
+		<file overwrite='true' jail='true'>harn-count.cpp</file>
+		<file overwrite='true' jail='true'>sampletext5.txt</file>
+		<file overwrite='true' jail='true'>sampletext4.txt</file>
+		<file overwrite='true' jail='true'>sampletext3.txt</file>
+	</extra-files>	
+
+	<case id='1'>
+		<arguments> 
+			<arg input="true" file="true">sampletext3.txt</arg>
+		</arguments>
+		<group mark='1'>
+		<line><regexp mark='1'>abc</regexp></line>
+		<line><regexp mark='1'>def</regexp></line>
+		<line><regexp mark='1'>xyz</regexp></line>
+		<line><regexp mark='1'>www</regexp></line>
+		</group>
+	</case>
+
+	<case id='2'>
+		<arguments> 
+			<arg input="true" file="true">sampletext4.txt</arg>
+		</arguments>
+		<line><regexp mark='1'>graSS|grass</regexp></line>
+		<line><regexp mark='1'>[Aa]bbey</regexp></line>
+		<line><regexp mark='1'>mountain</regexp></line>
+		<line><regexp mark='1'>cloud</regexp></line>
+		<line><regexp mark='1'>dam</regexp></line>
+	</case>
+
+	<case id='3'>
+		<arguments> 
+			<arg input="true" file="true">sampletext5.txt</arg>
+		</arguments>
+		<line><regexp mark='1'>the % 14</regexp></line>
+		<group mark='1'>
+		<line><regexp mark='0'>of % 7</regexp></line>
+		<line><regexp mark='0'>a % 6</regexp></line>
+		<line><regexp mark='0'>in % 5</regexp></line>
+		<line><regexp mark='0'>(system|to) % 4</regexp></line>
+		</group>
+	</case>
+</output>
+</memo>

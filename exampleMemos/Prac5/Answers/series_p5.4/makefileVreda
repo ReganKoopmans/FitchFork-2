@@ -1,0 +1,5 @@
+seriesVreda.out: seriesVreda.cpp seriesVreda.h mainVreda.cpp
+	g++ seriesVreda.cpp mainVreda.cpp -o seriesVreda.out
+
+run: seriesVreda.out
+	./seriesVreda.out  

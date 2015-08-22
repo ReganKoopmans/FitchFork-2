@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<memo version='0.4'>
+	<title>D2_stringMatch</title>
+	<!-- hannes jvv -->
+
+	<config>
+		<random>0</random>
+		<sequence>1</sequence>
+		<parts>1</parts>
+		<chances>30</chances> 
+	</config>
+
+<output part='1' fullmarks='7'> 
+			
+	<delete-patterns>
+		<pattern>.+\.o$</pattern>
+		<pattern>.+~$</pattern>
+	</delete-patterns>
+	
+	<source-patterns>
+		<pattern>.+\.cpp$</pattern>
+	</source-patterns>
+
+	<extra-files>
+		<file overwrite='true' jail='true'>makefile</file>
+		<file overwrite='true' jail='true'>harn-match.cpp</file>
+		<file overwrite='true' jail='true'>input1</file>
+	</extra-files>	
+
+	<case id='1'>
+		<arguments> 
+			<arg input="true" file="true">input1</arg>
+		</arguments>
+		<line><regexp mark='1'>MATCH</regexp></line>
+		<line><regexp mark='1'>MATCH</regexp></line>
+		<line><regexp mark='1'>MATCH</regexp></line>
+		<line><regexp mark='1'>MATCH</regexp></line>
+		<line><regexp mark='1'>DIFFER</regexp></line>
+		<line><regexp mark='1'>DIFFER</regexp></line>
+		<line><regexp mark='1'>DIFFER</regexp></line>
+	</case>	
+
+</output>
+</memo>

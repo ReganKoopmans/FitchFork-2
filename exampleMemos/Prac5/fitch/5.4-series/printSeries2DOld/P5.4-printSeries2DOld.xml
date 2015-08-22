@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<memo version='0.4'>
+	<title>COS132_P5S4_printSeries2D</title>
+	<!-- Kwan Sui Dave Ka -->
+	<config>
+		<random>0</random>
+		<sequence>1</sequence>
+		<parts>1</parts>
+		<chances>3</chances> 
+	</config>
+
+<output part='1' fullmarks='3'> 
+	<executable>series.out</executable>
+			
+	<delete-patterns>
+		<pattern>.+\.o$</pattern>
+		<pattern>.+~$</pattern>
+	</delete-patterns>
+	
+	<source-patterns>
+		<pattern>.+\.cpp$</pattern>
+	</source-patterns>
+
+	<extra-files>
+		<file overwrite='true' jail='true'>main.cpp</file>
+		<file overwrite='true' jail='true'>makefile</file>
+		<file overwrite='true' jail='true'>series.h</file>
+		<file overwrite='true' jail='true'>input1.txt</file>
+		<file overwrite='true' jail='true'>input2.txt</file>
+		<file overwrite='true' jail='true'>input3.txt</file>
+		<file overwrite='true' jail='true'>input4.txt</file>
+	</extra-files>
+
+	<case id='1'>
+		<arguments>
+			<arg file='true' input='true'>input1.txt</arg>
+		</arguments>
+		<line>
+			<regexp
+				successMessage="OK: The output format for numerators are correct."
+				errorMessage="X: Your output should have ' + ' between each numerator." 
+			>\d+\.*\d*\s+\d+\.*\d*\s+\d+\.*\d*\s+\d+\.*\d*\s+\d+\.*\d*</regexp>
+		</line>
+		<line>
+			<regexp
+				successMessage="OK: The output format for fraction lines are correct."
+				errorMessage="X: Check that your fraction lines are exactly according to the specifications." 
+			>\-\-\-\-\-\-\-\-\s+\+\s+\-\-\-\-\-\-\-\-\s+\+\s+\-\-\-\-\-\-\-\-\s+\+\s+\-\-\-\-\-\-\-\-\s+\+\s+\-\-\-\-\-\-\-\-</regexp>
+		</line>
+		<line>
+			<regexp
+				successMessage="OK: The output format for denominators are correct."
+				errorMessage="X: Your output should have ' + ' between each denominator." 
+			>\d+\.*\d*\s+\d+\.*\d*\s+\d+\.*\d*\s+\d+\.*\d*\s+\d+\.*\d*</regexp>
+		</line>
+	</case>
+	
+	<case id='2'>
+		<arguments>							
+			<arg file='true' input='true'>input1.txt</arg>
+		</arguments>
+		<line>
+			<regexp
+				mark = '1'
+				errorMessage="X: Your numbers outputted for numerators are incorrect." 
+			>4\.44\s+6\.5457\s+899\.114\s+6\.2333\s+948</regexp>
+		</line>
+		<line>
+			<regexp
+				errorMessage="X: Check that your fraction lines are exactly according to the specifications." 
+			>\-\-\-\-\-\-\-\-\s+\+\s+\-\-\-\-\-\-\-\-\s+\+\s+\-\-\-\-\-\-\-\-\s+\+\s+\-\-\-\-\-\-\-\-\s+\+\s+\-\-\-\-\-\-\-\-</regexp>
+		</line>
+		<line>
+			<regexp
+				mark = '1'
+				errorMessage="X: Your numbers outputted for denominators are incorrect." 
+			>3\.15\s+1\s+5\.67843\s+5\.67833\s+2\.8943</regexp>
+		</line>
+	</case>
+	
+	<case id='3'>
+		<arguments>							
+			<arg file='true' input='true'>input2.txt</arg>
+		</arguments>
+		<line>
+			<regexp
+				mark = '1'
+				errorMessage="X: Your numbers outputted for numerators are incorrect." 
+			>2\.8943\s+4\.3498\s+1</regexp>
+		</line>
+		<line>
+			<regexp
+				errorMessage="X: Check that your fraction lines are exactly according to the specifications." 
+			>\-\-\-\-\-\-\-\-\s+\+\s+\-\-\-\-\-\-\-\-\s+\+\s+\-\-\-\-\-\-\-\-</regexp>
+		</line>
+		<line>
+			<regexp
+				mark = '1'
+				errorMessage="X: Your numbers outputted for denominators are incorrect." 
+			>0\.217\s+6\.5457\s+899\.114</regexp>
+		</line>
+	</case>
+	
+	<case id='4'>
+		<arguments>							
+			<arg file='true' input='true'>input3.txt</arg>
+		</arguments>
+		<line>
+			<regexp
+				mark = '1'
+				errorMessage="X: Your numbers outputted for numerators are incorrect." 
+			>4\.44\s+6\.5457\s+899\.114</regexp>
+		</line>
+		<line>
+			<regexp
+				errorMessage="X: Check that your fraction lines are exactly according to the specifications." 
+			>\-\-\-\-\-\-\-\-\s+\+\s+\-\-\-\-\-\-\-\-\s+\+\s+\-\-\-\-\-\-\-\-</regexp>
+		</line>
+		<line>
+			<regexp
+				mark = '1'
+				errorMessage="X: Your numbers outputted for denominators are incorrect." 
+			>3\.15\s+1\s+5\.67843</regexp>
+		</line>
+	</case>
+	
+	<case id='5'>
+		<arguments>							
+			<arg file='true' input='true'>input4.txt</arg>
+		</arguments>
+		<line>
+			<regexp
+				mark = '1'
+				errorMessage="X: Your numbers outputted for numerators are incorrect." 
+			>2\.8943\s+4\.3498</regexp>
+		</line>
+		<line>
+			<regexp
+				errorMessage="X: Check that your fraction lines are exactly according to the specifications." 
+			>\-\-\-\-\-\-\-\-\s+\+\s+\-\-\-\-\-\-\-\-</regexp>
+		</line>
+		<line>
+			<regexp
+				mark = '1'
+				errorMessage="X: Your numbers outputted for denominators are incorrect." 
+			>0\.217\s+6\.5457</regexp>
+		</line>
+	</case>
+</output>
+</memo>

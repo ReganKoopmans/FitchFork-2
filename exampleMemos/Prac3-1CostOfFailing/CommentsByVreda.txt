@@ -1,0 +1,74 @@
+General:
+One connot assign negative marks
+You may ommit marks='0' - if no marks is specified, no marks are added
+
+Test case '1': This case evaluate if the output contains COS 132
+
+Improvement: I suggest you replace \s between COS and 132 with \s* - this will allow multiple spaces and also no space.
+If you want to have a message explicitly if they have the the digits in the wrong order one can do it like this:
+
+<line><alt>
+	<regexp mark='1' errorMessage="COS 132 not detected" successMessage="COS 132 detected">.*([Cc]os|COS)\s*132</regexp>
+	<regexp successMessage="Note: It is COS132 not COS123.">.*([Cc]os|COS)\s*123<\regexp>
+</alt></line>
+
+The first line give feedback whether it was detected or not and will give a merk if it was detected
+The second line does not give marks but deals with a case that is an expected error and gives appropriate additional feedback
+This is not an iportant test case as this is not an important issue in the assignment. 
+
+Test case '2': This case evaluate if the prompt ends with a colon and a space
+This case works perfectly! 
+
+
+Test case '3':
+This seems it is a case that you did not mean to retain - it evaluates if the output does not have TWO colons which is expected by the regular expression 
+while the requirements for this assignment has only one prompt. - Please remove it.
+
+Test case '4':
+This is a very good case to see if the students have a nice prompt starting with the keyword Enter or Select
+It however, behaves incorrectly because it also requires that the prompt has to end with a colon and pace - 
+As the colon and space is already addressed in Case 2 - this should not be re-evaluated here. Thus the regex should be:
+ <regex>((^|\s)[Ee]nter|[Ss]elect)\s.*<\regex>
+Note how I expect it to be a word and not part of a word (it will thus not match if the student has a sentence that contains the word  "center"):
+(^|\s) at the start specifies it is the beginning of the output or is preceded by a space while \s at the end expext as space after the word.
+
+Test case '5':
+The same as for case 4 applies here - we only want to evaluate if the string 'currency' (with quotes and all) is contained in the prompt.
+Please improve.
+	
+Test case '6':
+This case repeats everything that was done in 2,4 and 5 and may thus be removed.
+
+Test case '7':
+Since the presence of the string COS 132 is already tested in Test case 1  and awarded marks, this test case should only evaluate the calculated value and the units. 
+I suggest you do it like this:
+<line><alt>
+	<regexp mark='3' successMessage="OK: Calculation is correct" errorMessage="Calculation is wrong">.*\D228\s+.*</regexp>
+	<regexp mark='1' successMessage="OK: Currency keyword is correct">.*\d\s+burger.*</regexp>
+</alt></line>
+	
+If the student has 228 burgers - 
+	both will match: He gets 3 (the max of the the regex's that matched)
+	He will also get both sucess messages : Calculation correct.  Currency keyword correct.
+If the student has 6182 burgers -
+	only the bottom regex will match: he gets 1
+	He will get the error message of the top one ond the success message of the bottom one: Calculation is wrong. Currency keyword correct.
+If the student has 228
+	Only the top one matches: He gets 3
+	He will get the success message of the top one ond the error message of the bottom one: Calculation correct. Currency keyword missing or not spelled correctly.
+	
+If you would like to give 3 for calculation and units correct, 2 for calculation correct but units worng and 1 for only units it can be done by having two cases:
+Case for calculation:
+<line>
+	<regexp mark='2' successMessage="OK: Calculation is correct" errorMessage="Calculation is wrong">.*\D228\s+.*</regexp>
+</line>
+Case for units:
+<line>
+	<regexp mark='1' successMessage="OK: Currency keyword is correct" errorMessage="Currency keyword missing or not spelled correctly">.*\d\s+burger.*</regexp>
+</line>
+
+One can have specific expected wrong calculations as alternatives in the case for calculation (similarly to how COS123 was dealt with in test case 1) 
+Use only successMessage with these cases and assigne lower marks (if any)
+
+Test cases 8 and 9 can be treated similarly.
+Remove the test case for Dance class

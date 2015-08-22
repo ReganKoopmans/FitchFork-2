@@ -1,0 +1,22 @@
+Software design erosion is a phenomenon studied in more detail by oth-
+ers such as van Gurp and Bosch [14]. It can occur whenever changes are
+repeatedly made to a working system in order to fit new requirements. It
+especially occurs when said changes only modify enough of the system to
+(partially) effect the desired outcome without a adequate rethinking of the
+design or updates to other related parts of a software system. For exam-
+ple: some functions of the system might be (partially) obsoleted by the new
+change, but since the system as a whole still works and the goal of a new
+feature implementation is reached, a programmer might not be inclined to
+“rip out and replace” the sections pertaining to that feature even though it
+would simplify the codebase.
+Eroded designs often exhibit poor separation of concerns and unneces-
+sary coupling between modules. This can increase the difficulty of under-
+standing the way the system works, and therefore the effort of redesigning
+it in a more streamlined and logical way. At some point the effort of re-
+design becomes greater (at least in the short term) than the effort of simply
+“hacking” another change onto the system, so the erosion effect snowballs
+over time (similar to erosion in geography; there is also some similarity to
+the “broken window effect” observed in urban neighbourhoods [44] [41] –
+“if a window in a building is broken and is left unrepaired, all the rest of the
+windows will soon be broken”).
+

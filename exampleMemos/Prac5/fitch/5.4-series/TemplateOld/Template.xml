@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<memo version='0.4'>
+	<title>CheckArray</title>
+	<!-- Vreda -->
+	<config>
+		<random>0</random>
+		<sequence>1</sequence>
+		<parts>1</parts>
+		<chances>1</chances> 
+	</config>
+
+<output part='1' fullmarks='8'> 
+	<executable>eSeries.out</executable>
+			
+	<delete-patterns>
+		<pattern>.+\.o$</pattern>
+		<pattern>.+~$</pattern>
+	</delete-patterns>
+	
+	<source-patterns>
+		<pattern>.+\.cpp$</pattern>
+	</source-patterns>
+
+	<!-- The test case runs without an input file 
+	       as the test cases are hardcoded in the driver program  -->
+	<extra-files>
+		<file overwrite='true' jail='true'>driver-template.cpp</file>
+		<file overwrite='true' jail='true'>makefile</file>
+		<file overwrite='true' jail='true'>template.h</file>
+	</extra-files>
+
+
+	<!-- 
+		999 is the filler value that shows that the student program did not initialse the value
+		F# is the expected value for cell #  
+		I did not generalise the comments or the feedback.  -->
+	<case id='1'>
+		<!-- x = 0.3, t = 4   First four terms in array for positive x -->
+		<alt>
+			<line>
+				<regexp mark='3' 
+				successMessage="OK: eSeries(double, double[], size_t) when x is positive" 
+				>F0\tF1\tF2\tF3\t999</regexp>
+			</line><line>
+				<regexp mark = '1'
+				successMessage="X: first term not initialised" 
+				>999\tF1\tF2\tF3\t999</regexp>
+			</line><line>
+				<regexp mark='2'
+				successMessage="X: terms are in right order but in the wrong place" 
+				>^F1\tF2\tF3</regexp>
+			</line>
+			<line>
+				<regexp mark = '1'
+				successMessage="X: Accessing an element past the end of the array" 
+				>^((?!999).)*$</regexp>
+			</line>
+			<line>
+				<regexp mark='2'
+				successMessage="X: Too few terms entered in array" 
+				>F0\tF1\tF2(\t999){2}</regexp>
+			</line>
+		</alt>
+		<!-- x = 1, t = 4    Check only first three terms in array for x = 1 -->
+		<alt>
+			<line>
+				<regexp mark='1' 
+				successMessage="OK: eSeries(double, double[], size_t) when x = 1" 
+				errorMessage="X: eSeries(double, double[], size_t) fails when x = 1"
+				>F0\tF1\tF2</regexp>
+			</line><line>
+				<regexp mark = '1'
+				successMessage="X: first term not initialised" 
+				>999\tF1\tF2</regexp>
+			</line><line>
+				<regexp mark = '1'
+				successMessage="X: second term where first term was expected" 
+				>^F1\tF2</regexp>
+			</line>
+		</alt>			
+		<!-- x = -0.2, t = 4    Second to fourth term in array for negative x -->
+		<line>
+			<regexp mark='1' 
+			successMessage="OK: eSeries(double, double[], size_t) when x is negative" 
+			errorMessage="X: eSeries(double, double[], size_t) fails when x is negative"
+			>F1\tF2\tF3</regexp>
+		</line>
+		<!-- x = 0, t = 4    Check only first two terms in array for x = 0 -->
+		<line>
+			<regexp mark='1' 
+			successMessage="OK: eSeries(double, double[], size_t) when x = 0" 
+			errorMessage="X: eSeries(double, double[], size_t) fails when x = 0"
+			>F0\tF1</regexp>
+		</line>
+		<!-- x = 0.3, t = 1    Only first term in array should be set to 1 -->
+		<alt>
+			<line>
+				<regexp mark='1' 
+				successMessage="OK: eSeries(double, double[], size_t) when number of terms is one" 
+				errorMessage="X: eSeries(double, double[], size_t) fails when number of terms is one"
+				>F0\t(999\t){4}</regexp>
+			</line><line>
+				<regexp successMessage="----- first term should be 1" 
+				>F1\t(999\t){2}</regexp>
+			</line>
+		</alt>
+		<!-- x = 0.3, t = 0    Array should not be set -->
+		<line>
+			<regexp mark='1' 
+			successMessage="OK: eSeries(double, double[], size_t) when number of terms is zero" 
+			errorMessage="X: eSeries(double, double[], size_t) fails when number of terms is zero"
+			>(999\t){5}</regexp>
+		</line>
+	</case>
+</output>
+</memo>

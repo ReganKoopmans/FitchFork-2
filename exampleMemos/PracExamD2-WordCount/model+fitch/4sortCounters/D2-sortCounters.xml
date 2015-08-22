@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<memo version='0.4'>
+	<title>D2_sortCounters</title>
+	<!-- hannes jvv -->
+
+	<config>
+		<random>0</random>
+		<sequence>1</sequence>
+		<parts>1</parts>
+		<chances>30</chances> 
+	</config>
+
+<output part='1' fullmarks='12'> 
+			
+	<delete-patterns>
+		<pattern>.+\.o$</pattern>
+		<pattern>.+~$</pattern>
+	</delete-patterns>
+	
+	<source-patterns>
+		<pattern>.+\.cpp$</pattern>
+	</source-patterns>
+
+	<extra-files>
+		<file overwrite='true' jail='true'>makefile</file>
+		<file overwrite='true' jail='true'>harn-sort.cpp</file>
+		<file overwrite='true' jail='true'>input1</file>
+		<file overwrite='true' jail='true'>input2</file>
+		<file overwrite='true' jail='true'>input3</file>
+	</extra-files>	
+
+	<case id='1'>
+		<arguments> 
+			<arg input="true" file="true">input3</arg>
+		</arguments>
+		<line><regexp mark='2'>large</regexp></line>
+		<line><regexp mark='1'>small</regexp></line>
+	</case>
+
+	<case id='2'>
+		<arguments> 
+			<arg input="true" file="true">input2</arg>
+		</arguments>
+		<line><regexp mark='1'>jumps</regexp></line>
+		<line><regexp mark='1'>fox</regexp></line>
+		<line><regexp mark='1'>the</regexp></line>
+		<group mark='2'>
+		<line><regexp mark='0'>quick</regexp></line>
+		<line><regexp mark='0'>over</regexp></line>
+		<line><regexp mark='0'>brown</regexp></line>
+		</group>
+	</case>
+
+	<case id='3'>
+		<arguments> 
+			<arg input="true" file="true">input1</arg>
+		</arguments>
+		<line><regexp mark='1'>gedaan</regexp></line>
+		<line><regexp mark='1'>the</regexp></line>
+		<group mark='2'>
+		<line><regexp mark='0'>goed</regexp></line>
+		<line><regexp mark='0'>hierdie</regexp></line>
+		</group>
+	</case>
+</output>
+</memo>

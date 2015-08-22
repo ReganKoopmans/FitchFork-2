@@ -1,0 +1,9 @@
+version=magnitude
+harness=harness-$(version).cpp
+
+test.out: $(harness) vectors.cpp vectors.h
+	g++ -static -Wall vectors.cpp $(harness) -o test.out
+
+run:
+	./test.out
+
