@@ -1,0 +1,48 @@
+Here are links to possibel systems to evaluate (some may be gone by now)
+We need to add more as we discover them:
+
+http://sharifjudge.ir/
+http://www.dcs.warwick.ac.uk/boss/
+http://peach3.nl/trac/
+http://www.spoj.com/
+http://sio2project.mimuw.edu.pl/display/WWW/About+SIO2
+http://web-cat.org/
+http://www.doc.ic.ac.uk/~nd/surprise_95/journal/vol2/hst/article2.html
+http://sankhs.com/codejudge/
+http://easyaccept.sourceforge.net/manual.html
+https://github.com/Salamander0/Progtest
+https://icpc.kattis.com/doc
+
+Another interesting option that is more like monkey puzzles with
+programs which we can have in addition to a full fledged program:
+http://www.sis.pitt.edu/~taler/QuizPACK.html
+
+What about ABBACUS? - this is the system that Linda applies in the ACM Contest.
+
+We may consider looking at unit-testing tools (FF is in essence only a unit-testing tool)
+
+---------------
+Here are some observasions made by JAN KROEZE  in 2014 about some of the above mentioned :
+
+SharifJudge: lyk nice, ek hou baie van die MOSS integrasie.
+BOSS: doen te veel, ek sal iets verkies wat slegs 'n automarker is, dan is
+daar minder kode om te onderhou.
+peach: lyk nice, ek hou daarvan dat dit in Python en Django geskryf is,
+aangesien dit beteken ons kan op daai twee fokus. *Maar* dit is nog in
+beta, en daar is presies 5 contributors. Groot risiko dat dit sal
+uitsterf.
+spoj: nice, ons het dit vir die ACM goed gebruik.
+sio2: lyk baie belowend aangesien dit nogal moduler is en ook Django
+gebruik. Dit lyk min of meer lewendig:
+https://github.com/sio2project/oioioi/graphs/contributors
+web-cat: lyk vir my bietjie heavy vir wat ons wil he
+Ceilidh: lyk baie verouderd.
+Codejudge: Java. Installasie instruksies is "maak dit oop in Eclipse".
+Lol. Lyk of dit PHP nodig het, ew.
+EasyAccept: lyk soos 'n wrapper om JUnit?
+progtest: File names soos 1.c en 2.c, ek kan ook nie enige verwysing kry
+na die testing framework self nie.
+KATTIS: "Kattis is written in a combination of Python, PHP and SQL and
+runs under Solaris." Dit sal baie nice moet wees om Solaris die moeite
+werd te
+ maak. Ek kry ook nie 'n link na 'n source download nie.

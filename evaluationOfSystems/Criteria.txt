@@ -1,0 +1,58 @@
+It would be nice if someone can get hold of the criteria that Jan Kroeze set up on some wiki at some time in the beginning of 2014
+
+
+We need to make a list of things that can be assessed categorised as static analysis and dynamic analysis:
+
+STATIC:
+
+- Compiance with coding standard style
+- Code complexity
+- use of tabu things like specific libraries
+- application of bad practice like using global variables
+- application of design patterns
+
+
+DYNAMIC:
+
+- Input / output (with use of regular expressions for evaluating output)
+- Memory usage + CPU usage
+
+
+FEEDBACK & RECORD KEEPING:
+
+We need to have criteria related to the levels of feedback and record keeping
+
+- How accurate and complete is the feedback to students?
+
+--------------------
+Non-negotiable criteria for us:
+1) Program must support C++
+2) Students must be able to upload from home
+3) Strict security measures to prevent a program submitted by a user to perform any malicious actions deliberately or by accident.
+4) Specification of criteria when matching should allow regular expressions
+5) Must be possible to specify Time-out limits
+6) Students must be able to submit multiple times
+7) Must be possible to specify number of allowed resubmissions
+8) Must keep backups of all submissions
+
+HERE ARE SOME THINGS THAT SHOULD BE LOOKED AT:
+
+1) How easy is it to specify test data and criteria for marking
+2) What happens with existing submissions when memo is changed after submissions was already made? (delete/keep/re-assess)
+3) Does memo specification allow for feedback to students
+4) Can alternative answers with unequal number of output lines be specified?
+5) Can system evaluate code in terms of static code analysis using metrics that correspond to complexity and style?
+6) Can system prevent the use of specified libraries and/or specified
+functions?
+7) Can system identify the use of specific programming techniques such as the use of recursion, static variables, global variables, global
+constants, etc.
+8) Can system identify "code smells"?
+9) Can code be subjected to simple plagiarism detection such as MD5-sum comparison within a group and simple diff-analysis?
+10) Can code be submitted for advanced plagiarism detection?
+11) What other programming languages are supported?
+12) Is it possible to specify a formula for calculating marks in cases
+where multiple submissions are allowed (best/worst/first/last/average/weighted)
+13) What statistics are gathered for students (their own performance and performance in relation to the group)
+14) What statistics are gathered for instructors?
+15) How much work will it be to integrate it properly into our website
+16) Is the system guaranteed to be improved in the future and how easy will it be for us to participate in future improvement of the system?
